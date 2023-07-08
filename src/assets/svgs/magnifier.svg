@@ -1,0 +1,6 @@
+<svg id="icon-navbar-search-v2.0" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <rect id="Rectangle_2350" data-name="Rectangle 2350" width="40" height="40" fill="none"/>
+  <g id="search-001" transform="translate(3.9 3.9)">
+    <path id="Union_61" data-name="Union 61" d="M9034.2,3176.7l-5.9-5.8a.99.99,0,0,1,1.4-1.4l5.9,5.8a.786.786,0,0,0,1.1,0l.9-1a.786.786,0,0,0,0-1.1l-5.9-5.8a.989.989,0,0,1,1.4-1.4l5.9,5.8a2.716,2.716,0,0,1,0,3.9l-.9,1a2.729,2.729,0,0,1-1.9.8A3.173,3.173,0,0,1,9034.2,3176.7Zm-26.1-18.6a12,12,0,1,1,12,12A12.036,12.036,0,0,1,9008.1,3158.1Zm2,0a10,10,0,1,0,10-10A10.029,10.029,0,0,0,9010.1,3158.1Z" transform="translate(-9008 -3146)" fill="#222"/>
+  </g>
+</svg>

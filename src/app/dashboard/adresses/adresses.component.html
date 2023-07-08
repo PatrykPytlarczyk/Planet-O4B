@@ -1,0 +1,164 @@
+<main class="main-addresses">
+    <div class="wrapper">
+
+        <div class="addresses-modal" *ngIf="showAddressModal">
+
+            <div class="addresses-modal-panel white-card" #addressModal *ngIf="!addressManaged">
+                <div class="close-modal" (click)="onClose()">
+                    <span>&#x2715;</span>
+                </div>
+                <div class="panel-user">
+                    <img src="../../../assets/imgs/avatar.png" alt="avatar">
+                    <p>{{username}}</p>
+                </div>
+                <div class="panel-form">
+                    <h3>{{"ADD-ADDRESS"|translate}}</h3>
+                    <div class="form-bar">
+                        <div class="form-bar-filling" [ngStyle]="{'width':formBarFillingWidth}">
+                            <span class="form-bar-percent">{{formBarFillingWidth}}</span>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <form class="form" #addressForm="ngForm" (change)="progressionBarHandler()"
+                            (ngSubmit)="onSubmit()">
+                            <div class="form-group form-group--first">
+                                <select name="type" ngModel required>
+                                    <option class="option-placeholder" value="" selected disabled>{{"TYPE"|translate}}
+                                    </option>
+                                    <option value="Teleportation point address">
+                                        {{"Teleportation point address"|translate}}</option>
+                                    <option value="Main address">{{"Main address"|translate}}</option>
+                                    <option value="Different address">{{"Different address"|translate}}</option>
+                                </select>
+                                <input type="text" name="name" [placeholder]="'ADDRESS-NAME'|translate" ngModel
+                                    required>
+
+                            </div>
+
+                            <div class="form-text">
+                                <p>{{"COMPLETE-DATA"|translate}}</p>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="planet" [placeholder]="'PLANET'|translate" ngModel required>
+                                <input type="text" pattern="[0-9]{2}[-][0-9]{3}" name="postalCode"
+                                    [placeholder]="'POSTAL-CODE'|translate" [ngModel]="managedAddress.postalCode"
+                                    (input)="postalCodeHandler(postalCodeInput)" required #postalCodeInput>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="town" [placeholder]="'TOWN'|translate" ngModel required>
+                                <input type="text" name="street" [placeholder]="'STREET'|translate" ngModel required>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="buildingNumber" [placeholder]="'BUILDING-NUMBER'|translate"
+                                    ngModel required>
+                                <input type="number" name="apartmentNumber" [placeholder]="'APARTMENT-NUMBER'|translate"
+                                    ngModel required>
+                            </div>
+                            <div class="form-controls">
+                                <button class="btn-second" (click)="onClose()">{{"CANCEL"|translate}}</button>
+                                <button class="btn-main" type="submit"
+                                    [disabled]="!addressForm.valid">{{"SAVE"|translate}}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="address-modal-panel-addressManaged white-card" *ngIf="addressManaged">
+                <div class="addressManaged-info">
+                    <img src="../../../../assets/svgs/check-mark-circle.svg">
+                    <h3 *ngIf="!isAddressEditing">{{"ADDRESS-ADDED"|translate}} {{managedAddress.name}}</h3>
+                    <h3 *ngIf="isAddressEditing">{{"ADDRESS-EDITED"|translate}} {{managedAddress.name}}</h3>
+                </div>
+                <div class="addressManaged-controls">
+
+                    <button class="btn-main" (click)="onClose()">{{"CLOSE"|translate}}</button>
+                </div>
+            </div>
+
+            <div class="addresses-bgc" (click)="onClose()"></div>
+
+        </div>
+
+
+        <p class="path">{{"PLANET"|translate}} O4B <span class="arrow">&#10095;</span> {{"ADDRESSES"|translate}}</p>
+        <div class="addresses">
+            <div class="addresses-select white-card">
+                <p class="addresses-select-text">{{"ADDRESSES"|translate}}</p>
+            </div>
+            <div class="addresses-management">
+                <div class="addresses-management-text">
+                    <h3>{{"ADDRESSES"|translate}}</h3>
+
+                    <button class="btn-second" (click)="onAdd()">{{"ADD-ADDRESS"|translate}}</button>
+                    <div class="change-layout">Zmień widok:
+
+
+                        <span class="tiled-layout" [ngStyle]="{'color': tiledLayout? '#27c722':''}"
+                            (click)="tiledLayout = true">
+                            <svg xmlns="../../../assets/svgs/tiled-layout.svg"
+                                class="icon icon-tabler icon-tabler-layout-grid" width="24" height="24"
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M4 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+                                <path
+                                    d="M14 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+                                <path
+                                    d="M4 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+                                <path
+                                    d="M14 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+                            </svg>
+                        </span>
+
+                        <span class="list-layout" [ngStyle]="{'color': !tiledLayout? '#27c722':''}"
+                            (click)="tiledLayout = false">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-layout-list"
+                                width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path
+                                    d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z">
+                                </path>
+                                <path
+                                    d="M4 14m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z">
+                                </path>
+                            </svg>
+                        </span>
+
+                    </div>
+                </div>
+                <div class="addresses-list white-card">
+                    <div class="addresses-list-loaded">
+
+                        <table [ngClass]="{'tiledLayout':tiledLayout}">
+                            <tr class="heading-row">
+                                <th>{{"ADDRESS-TYPE"|translate}}</th>
+                                <th>{{"ADDRESS-NAME"|translate}}</th>
+                                <th>{{"ADDRESS-DATA"|translate}}</th>
+                                <th>{{"MORE"|translate}}</th>
+                            </tr>
+                            <tr class="body-row" [ngStyle]="{'backgroundColor': i%2==0?'':'#fafafa'}"
+                                *ngFor="let address of addresses;let i = index">
+                                <td>{{address.type |translate}}</td>
+                                <td>{{address.name}}</td>
+                                <td>ul. {{address.street}} {{address.buildingNumber}}/{{address.apartmentNumber}},
+                                    {{address.postalCode}}
+                                    {{address.town}}{{address.planet !== '' ? ', '+address.planet : ''}}</td>
+                                <td><i class="options " (click)="onShowOptions(options)" #options><img
+                                            src="../../../assets/svgs/ellipsis.svg" [alt]="'SHOW-OPTIONS'|translate">
+                                        <div class="showedOptions" #options>
+                                            <span (click)="onEdit(address)" span>{{"EDIT-ADDRESS"|translate}}</span>
+                                            <span (click)="onDelete(address)">{{"DELETE-ADDRESS"|translate}}</span>
+                                        </div>
+                                    </i></td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

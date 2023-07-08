@@ -1,0 +1,71 @@
+<main class="main-missions">
+
+    <div class="wrapper">
+
+        <p class="path">{{"PLANET"|translate}} O4B <span class="arrow">&#10095;</span>
+            {{"MISSIONS-MANAGEMENT"|translate}}</p>
+
+        <div class="missions">
+            <div class="missions-select white-card">
+                <p class="missions-select-text">{{"ALL-MISSIONS"|translate}}</p>
+            </div>
+            <div class="missions-management">
+                <div class="missions-management-text">
+                    <h3>{{"MISSIONS-MANAGEMENT"|translate}}</h3>
+                    <p>{{"MISSIONS-TEXT"|translate}}</p>
+                    <button class="btn-second" *ngIf="loadMissions"
+                        (click)="onAdd()">{{"ADD-MISSION"|translate}}</button>
+                </div>
+                <div class="missions-list white-card">
+                    <div class="missions-list-notLoaded missions-loading" [ngClass]="{'missions-loading': isLoading}"
+                        *ngIf="!loadMissions">
+                        <p>{{"EMPTY"|translate}}</p>
+                        <img src="../../../assets/svgs/missions.svg" alt="missions image">
+                        <button class="btn-second" (click)="onLoad()">{{"LOAD-MISSIONS"|translate}}</button>
+                    </div>
+                    <div class="missions-list-loaded" *ngIf="loadMissions">
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>{{"MISSION-CODENAME"|translate}}</td>
+                                    <td>{{"MISSION-DATE"|translate}}</td>
+                                    <td>Status</td>
+                                    <td>{{"BUDGET"|translate}}</td>
+                                    <td></td>
+                                    <td>{{"MORE"|translate}}</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let mission of missions;let i = index"
+                                    [ngStyle]="{'backgroundColor': i%2==0?'':'#fafafa'}">
+                                    <td>{{mission.name}}</td>
+                                    <td>{{mission.deadline}}</td>
+                                    <td>
+                                        <span class="status-dot"
+                                            [ngStyle]="{'backgroundColor': getColor(mission.status)}"></span>
+                                        {{mission.status | translate}}
+                                    </td>
+                                    <td>{{mission.budget.toFixed(2)}}</td>
+                                    <td><button class=" btn-second">{{"DETAILS"|translate}}</button></td>
+                                    <td>
+                                        <i class="options" (click)="onShowOptions(options)" #options><img
+                                                src="../../../assets/svgs/ellipsis.svg" alt="show options icon">
+                                            <div class="showedOptions" #options>
+                                                <span (click)="onEdit(mission)" span>{{"EDIT-MISSION"|translate}}</span>
+                                                <span (click)="onDelete(mission)">{{"DELETE-MISSION"|translate}}</span>
+                                            </div>
+                                        </i>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</main>

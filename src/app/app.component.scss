@@ -1,0 +1,64 @@
+@use "colors" as *;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+* {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body {
+  position: relative;
+  margin: 0;
+  min-height: 100%;
+  font-size: 1.6rem;
+  background-color: $light-gray;
+  box-sizing: inherit;
+  padding-bottom: 9rem;
+}
+h2 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+a {
+  color: $dark;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+input[type="checkbox"] {
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+  border: 1px solid $main-green;
+  cursor: pointer;
+  &:checked::after {
+    content: url("../assets/svgs/check-mark.svg");
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 23px;
+    width: 23px;
+    text-align: center;
+    line-height: 24px;
+    color: $pure-white;
+    background: $main-green;
+    border-radius: inherit;
+  }
+}
+label,
+i {
+  margin-left: 0.4em;
+  cursor: pointer;
+}

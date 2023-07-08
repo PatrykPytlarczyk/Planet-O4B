@@ -1,0 +1,27 @@
+@use "colors" as *;
+@import "components";
+.page-not-found {
+  .wrapper {
+    flex-direction: column;
+    img {
+      margin-bottom: 1em;
+    }
+  }
+  .white-card {
+    display: flex;
+    flex-direction: column;
+    .btn-main {
+      font-size: 1.5rem;
+      align-self: center;
+    }
+  }
+}
+@media (min-width: 576px) {
+  .page-not-found {
+    position: absolute;
+    width: 100%;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+  }
+}

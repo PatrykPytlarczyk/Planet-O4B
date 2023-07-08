@@ -1,0 +1,94 @@
+@import "../imports/colors";
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0 auto;
+  padding: 1em;
+  width: 100%;
+  max-width: 1600px;
+}
+.white-card {
+  padding: 1em;
+  background-color: $pure-white;
+  border-radius: 20px;
+  box-shadow: #2222220d 0 0 20px;
+}
+.btn-main {
+  position: relative;
+  padding: 1em 2em;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: $pure-white;
+  background-color: $main-green;
+  // border: transparent;
+  border: 1px solid $main-green;
+  border-radius: 50px;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: #23ad1e;
+  }
+  &:disabled {
+    background-color: #7cb47a;
+    border: #7cb47a;
+  }
+}
+.button--loading .button__text {
+  visibility: hidden;
+  opacity: 0;
+}
+.button--loading::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 4px solid transparent;
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: button-loading-spinner 1s ease infinite;
+}
+@keyframes button-loading-spinner {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}
+.btn-second {
+  padding: 1em 2em;
+  text-transform: uppercase;
+  color: $main-green;
+  background-color: $pure-white;
+  border: 1px solid $main-green;
+  border-radius: 50px;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: #f7f7f7;
+  }
+}
+i {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50px;
+    transition: opacity 0.3s;
+    background-color: $main-green;
+    opacity: 0;
+  }
+}
+i:hover::after {
+  opacity: 0.2;
+}

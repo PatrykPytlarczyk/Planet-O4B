@@ -1,0 +1,83 @@
+<header class="header ">
+
+    <div class="menu " [ngClass]="{'showed':showMenu}" #menu>
+        <span (click)="onToggleMenu()">&#x2715;</span>
+        <h3>Menu</h3>
+        <p>{{"AGENTS"|translate}}<img src="../../assets/svgs/user-black.svg"></p>
+        <p [routerLink]="['/dashboard/missions']" (click)="onToggleMenu()">{{"MISSIONS"|translate}}
+            <img src="../../assets/imgs/missions.png">
+        </p>
+        <p [routerLink]="['/dashboard/adresses']" (click)="onToggleMenu()">{{"ADDRESSES"|translate}}
+            <img src="../../assets/imgs/addresses.png">
+        </p>
+        <p>{{"SEARCH"|translate}}
+            <img class="magnifier-img" src="../../assets/svgs/magnifier.svg" style="width:30px">
+        </p>
+    </div>
+
+    <div class="wrapper">
+
+        <div class="header-languages">
+            <div class="languages-shadow" *ngIf="showLanguages" (click)="onToggleLanguages()"></div>
+            <div class="header-languages-info" (click)="onToggleLanguages()">
+                <span>{{"LANG"|translate}}</span>
+                <span><img src="../../assets/svgs/icon-navbar-languages-v1.0.svg" alt="languages">
+                    {{currentLang}}</span>
+            </div>
+
+            <div class="header-languages-showed white-card" *ngIf="showLanguages" #languagesShowed>
+                <div class="language " [ngClass]="{'active':currentLang==='PL'}" (click)="onChangeLang('pl')">
+                    Polski (PL)
+                    <img src="../../assets/imgs/poland.png" [alt]="['POLAND'|translate , 'flag']">
+                </div>
+                <div class="language " [ngClass]="{'active':currentLang==='EN'}" (click)="onChangeLang('en')">
+                    English (EN)
+                    <img src="../../assets/imgs/uk.png" [alt]="['ENGLISH'|translate , 'flag']">
+                </div>
+                <div class="language ">
+                    Deutsch (DE)
+                    <img src="../../assets/imgs/de.png" [alt]="['GERMANY'|translate , 'flag']">
+                </div>
+                <div class="language ">
+                    Український (UA)
+                    <img src="../../assets/imgs/ua.png" [alt]="['UKRAINE'|translate , 'flag']">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="header-menu">
+            <span>Menu</span>
+            <img src="../../assets/svgs/bars.svg" alt="menu bars" (click)="onToggleMenu()">
+        </div>
+
+
+        <div class="header-logo">
+            <a routerLink="/dashboard/main-dashboard">
+                <img src="../../assets/svgs/logo.svg" alt="O4B logo">
+            </a>
+        </div>
+
+
+        <div class="header-controls">
+            <img class="magnifier-img" src="../../assets/svgs/magnifier.svg" alt="search">
+            <div class="header-controls-user" (click)="onShowUserModal()" [ngClass]="{'box-shadow':showUserModal}">
+                <img class="user-avatar" src="../../assets/imgs/avatar.png" alt="user avatar">
+                <span class="header-controls-user-login">{{username}}</span>
+                <div class="user-modal white-card" *ngIf="showUserModal" #modal>
+                    <h3>{{"LOGIN-DATA"|translate}}</h3>
+                    <div class="user-modal-info">
+                        <p>{{"LOGGED-AS"|translate}}:</p>
+                        <p class="username">{{username}}</p>
+                    </div>
+                    <span class="logout" (click)="onLogout()">
+
+                        <span><img src="../../assets/imgs/logout.png" alt="logout icon">{{"LOGOUT"|translate}}</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</header>

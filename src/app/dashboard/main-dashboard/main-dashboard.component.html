@@ -1,0 +1,81 @@
+<main class="main-dashboard">
+
+    <div class="wrapper">
+        <div class="main-dashboard-text" [innerHTML]="'WELCOME' | translate">
+
+        </div>
+        <div class="main-dashboard-sections">
+            <div class="section section--first white-card">
+                <div class="section-info">
+                    <h3>{{"AGENTS"|translate}}</h3>
+                    <span>10</span>
+                </div>
+                <div class="section-controls">
+                    <button class="btn-main">{{"SEE-AGENTS"|translate}}</button>
+                    <i><img src="../../../assets/svgs/ellipsis.svg" [alt]="'MANAGE'|translate"></i>
+                </div>
+            </div>
+            <div class="section section--second white-card">
+                <div class="section-info">
+                    <h3>{{"MISSIONS"|translate}}</h3>
+                    <span>{{activeMissions}} {{"ACTIVE"|translate}}</span>
+                </div>
+                <div class="section-controls">
+                    <button [routerLink]="['/dashboard/missions']"
+                        class="btn-second">{{"CHECK-MISSIONS"|translate}}</button>
+                    <i><img src="../../../assets/svgs/ellipsis.svg" [alt]="'MANAGE'|translate"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-dashboard-modules white-card">
+            <h3>{{"MODULES"|translate}}</h3>
+
+            <div class="modules">
+
+                <div class="module">
+                    <div class="module-info">
+                        <img src="../../../assets/svgs/icon-resources.svg" [alt]="'MISSIONS-MANAGEMENT'|translate">
+                        <p>{{"MISSIONS-MANAGEMENT"|translate}}</p>
+                    </div>
+                    <div class="module-controls">
+                        <i><img src="../../../assets/svgs/ellipsis.svg" [alt]="'MISSIONS-MANAGEMENT'|translate"></i>
+                        <a [routerLink]="['/dashboard/missions']">{{"GO"|translate}}</a>
+                    </div>
+                </div>
+                <div class="module">
+                    <div class="module-info">
+                        <img src="../../../assets/svgs/icon-configuration.svg" [alt]="'ADDRESSES'|translate">
+                        <p>{{"ADDRESSES"|translate}}</p>
+                    </div>
+                    <div class="module-controls">
+                        <i><img src="../../../assets/svgs/ellipsis.svg" [alt]="'ADDRESSES'|translate"></i>
+                        <a [routerLink]="['/dashboard/adresses']">{{"GO"|translate}}</a>
+                    </div>
+                </div>
+                <div class="module">
+                    <div class="module-info">
+                        <img src="../../../assets/svgs/icon-translation.svg" [alt]="'TELEPORTATION'|translate">
+                        <p>{{"TELEPORTATION"|translate}}</p>
+                    </div>
+                    <div class="module-controls">
+                        <i><img src="../../../assets/svgs/ellipsis.svg" [alt]="'TELEPORTATION'|translate"></i>
+                        <a [routerLink]="['/dashboard/teleportation']">{{"GO"|translate}}</a>
+                    </div>
+                </div>
+                <div class="module">
+                    <div class="module-info">
+                        <img src="../../../assets/svgs/icon-export-import.svg" alt="zarządzanie misjami">
+                        <p>{{"EXPORT-IMPORT"|translate}}</p>
+                    </div>
+                    <div class="module-controls">
+                        <i><img src="../../../assets/svgs/ellipsis.svg" [alt]="'EXPORT-IMPORT'|translate"></i>
+                        <a [routerLink]="['/dashboard/export-import']">{{"GO"|translate}}</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</main>

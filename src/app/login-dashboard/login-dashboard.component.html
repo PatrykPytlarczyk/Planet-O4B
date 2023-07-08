@@ -1,0 +1,68 @@
+<div class="container-fluid d-flex flex-column justify-content-center align-items-center">
+
+    <div class="row ">
+
+        <div class=" col-xs-12 d-flex flex-column align-items-center ">
+
+            <a href="#" class="d-block"><img class="logo-img py-5 my-5" src="../../assets/svgs/logo.svg"
+                    alt="O4B logo"></a>
+
+            <div class="login-dashboard p-5 ">
+
+                <div class="languages">
+                    <div class="language">
+                        <img src="../../assets/imgs/poland.png" [alt]="['POLAND'|translate , 'flag']"
+                            (click)="onChangeLang('pl')">
+                    </div>
+                    <div class="language-second">
+                        <img src="../../assets/imgs/uk.png" [alt]="['ENGLISH'|translate , 'flag']"
+                            (click)="onChangeLang('en')">
+                    </div>
+                </div>
+
+                <h2 class="pb-3 py-sm-4 text-center">{{"LOGIN"|translate}}</h2>
+
+                <form (ngSubmit)="onLogin()" #form="ngForm">
+                    <div class="form-group mt-5">
+                        <span class="icon"><img src="../../assets/svgs/user.svg"></span>
+                        <input class="form-group-input" type="text" placeholder="Login" ngModel name="login" required
+                            minlength="3">
+                    </div>
+
+                    <div class="form-group py-3">
+                        <span class="icon"><img src="../../assets/svgs/padlock.svg"></span>
+                        <input class="form-group-input passwordInput" [ngClass]="{'notEmpty':passwordInput.value!==''}"
+                            type="password" [placeholder]="'PASSWORD'|translate" ngModel name="password" required
+                            minlength="5" [pattern]="passwordPattern" #passwordInput="ngModel">
+                        <span class="help-block" *ngIf="!passwordInput.valid && passwordInput.touched">
+                            {{"HELP-BLOCK"|translate}}
+                        </span>
+                    </div>
+
+                    <div
+                        class="form-options d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-3 my-5">
+                        <div class="form-options--firstOption d-flex mt-sm-2">
+                            <input type="checkbox" name="rememberMe" id="rememberMe" ngModel name="rememberMe">
+                            <label for="rememberMe">{{"REMEMBER-ME"|translate}}</label>
+                        </div>
+                        <div class="form-options--secondOption">
+                            <a href="#">{{"FORGOT"|translate}}</a>
+                        </div>
+                    </div>
+
+                    <div
+                        class="form-controls d-flex flex-row justify-content-between align-items-center gap-3 mt-sm-5 pb-sm-5">
+                        <a href="#">{{"REGISTER"|translate}}</a>
+
+                        <button class="buttton  btn-main " type="submit" [ngClass]="{'button--loading': isLogging}"
+                            [disabled]="!form.valid">
+                            <span class="button__text">{{"LOGIN"|translate}}</span>
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

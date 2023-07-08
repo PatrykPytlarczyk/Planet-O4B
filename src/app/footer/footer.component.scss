@@ -1,0 +1,11 @@
+@use "colors" as *;
+@import "components";
+.footer {
+  position: absolute;
+  bottom: 0;
+  margin-top: 2em;
+  width: 100%;
+  text-align: right;
+  color: $pure-white;
+  background-color: $gray;
+}

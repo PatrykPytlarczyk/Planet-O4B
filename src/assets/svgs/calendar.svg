@@ -1,0 +1,8 @@
+<svg id="calendar" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path id="Path_2320" data-name="Path 2320" d="M13.938,1.25H12.5V.5a.5.5,0,0,0-1,0v.75h-7V.5a.5.5,0,0,0-1,0v.75H2.063A2.065,2.065,0,0,0,0,3.313V13.938A2.065,2.065,0,0,0,2.063,16H13.938A2.065,2.065,0,0,0,16,13.938V3.313A2.065,2.065,0,0,0,13.938,1.25ZM15,13.938A1.062,1.062,0,0,1,13.938,15H2.063A1.062,1.062,0,0,1,1,13.938V5.656A.156.156,0,0,1,1.156,5.5H14.844A.156.156,0,0,1,15,5.656Z" fill="#27c722"/>
+  <g id="Group_1080" data-name="Group 1080" transform="translate(3.5 7)">
+    <circle id="Ellipse_47" data-name="Ellipse 47" cx="1" cy="1" r="1" fill="#27c722"/>
+    <circle id="Ellipse_48" data-name="Ellipse 48" cx="1" cy="1" r="1" transform="translate(4)" fill="#27c722"/>
+    <circle id="Ellipse_49" data-name="Ellipse 49" cx="1" cy="1" r="1" transform="translate(8)" fill="#27c722"/>
+  </g>
+</svg>

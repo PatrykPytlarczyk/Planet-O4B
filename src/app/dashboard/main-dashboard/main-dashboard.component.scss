@@ -1,0 +1,204 @@
+@use "colors" as *;
+@import "components";
+.main-dashboard {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.7em;
+  }
+  h3 {
+    font-size: 2.2rem;
+  }
+  &-text {
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    gap: 1em;
+    h2 {
+      font-size: 4.8rem;
+      border-bottom: 1px solid $border-gray;
+      padding-bottom: 0.3em;
+    }
+  }
+  &-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+    .section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5em 1em;
+      .section-info,
+      .section-controls {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 40%;
+        .btn-main,
+        .btn-second {
+          margin-bottom: 1em;
+          font-size: 1rem;
+        }
+
+        img {
+          transform: rotate(90deg);
+          cursor: pointer;
+        }
+      }
+      .section-info {
+        align-items: start;
+        width: 50%;
+        h3 {
+          font-size: 2.2rem;
+          margin-right: auto;
+          margin-left: 0.3em;
+        }
+        span {
+          font-size: 1.7rem;
+          margin-left: 0.5em;
+          text-align: center;
+        }
+      }
+    }
+  }
+  &-modules {
+    padding: 3em 2em;
+    width: 100%;
+
+    .module {
+      display: flex;
+      padding: 1em 1.5em;
+      width: 100%;
+      border-bottom: 1px solid $border-gray;
+      &:last-of-type {
+        border-bottom: transparent;
+      }
+      &-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2em;
+        width: 90%;
+        align-items: center;
+        text-align: center;
+        img {
+          margin-bottom: 2em;
+        }
+        p {
+          font-size: 2rem;
+        }
+      }
+      &-controls {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        width: 10%;
+        a {
+          font-weight: 500;
+          color: $main-green;
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .main-dashboard {
+    &-text {
+      flex-direction: row;
+      align-items: center;
+      h2 {
+        border-bottom: transparent;
+        padding-bottom: 0;
+        border-right: 1px solid $border-gray;
+        padding-right: 0.5em;
+      }
+    }
+    .section {
+      div {
+        width: 45%;
+      }
+      .section-info {
+        h3 {
+          font-size: 3rem;
+        }
+        span {
+          font-size: 2rem;
+        }
+      }
+    }
+    &-modules {
+      h3 {
+        font-size: 3rem;
+      }
+      .modules {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        .module {
+          width: 45%;
+          max-height: 219px;
+          margin: 0.7em;
+          border-bottom: 1px solid $border-gray;
+          border-right: 1px solid $border-gray;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 576px) {
+  .main-dashboard-sections {
+    .section {
+      .section-controls {
+        flex-direction: row;
+        .btn-main,
+        .btn-second {
+          margin-bottom: 0;
+          font-size: 1.2rem;
+        }
+        img {
+          transform: rotate(0);
+        }
+      }
+    }
+  }
+}
+@media (min-width: 992px) {
+  .main-dashboard-text {
+    margin-top: 0.3em;
+  }
+  .main-dashboard-sections {
+    flex-direction: row;
+    .section {
+      width: 50%;
+      div {
+        width: 45%;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .main-dashboard-modules {
+    .modules {
+      .module {
+        width: 25%;
+        margin: 0;
+        border-bottom: transparent;
+        &:last-of-type {
+          border-right: transparent;
+        }
+      }
+    }
+  }
+}

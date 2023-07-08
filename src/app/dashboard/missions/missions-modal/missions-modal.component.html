@@ -1,0 +1,54 @@
+<div class="missions-modal">
+
+    <div class="close-modal" (click)="onClose()">
+        <span>&#x2715;</span>
+    </div>
+
+    <div class="missions-modal-panel white-card">
+        <div class="missions-modal-panel-text" *ngIf="!missionAdded && !missionEdited">
+            <h3 *ngIf="!isMissionEditting">{{"ADDING-MISSION"|translate}}</h3>
+            <h3 *ngIf="isMissionEditting">{{"EDIT-MISSION"|translate}}</h3>
+            <p>{{"ENTER-DATA"|translate}}</p>
+        </div>
+
+        <div class="missions-modal-panel-form" *ngIf="!missionAdded && !missionEdited">
+            <form (ngSubmit)="onSubmit()" #form="ngForm">
+                <input class="form-input" type="text" [placeholder]="'MISSION-CODENAME'|translate" name="name" required
+                    [ngModel]="newMission.name" minlength="3" #nameInput="ngModel">
+                <input class="form-input deadline-input" type="text" [placeholder]="'MISSION-DATE'|translate"
+                    onfocus="this.type='date'" onblur="this.value!== '' ? '' : this.type='text'" name="deadline"
+                    required [ngModel]="newMission.deadline">
+                <span class="budget-input">
+                    <input class="form-input" type="number" [placeholder]="'BUDGET'|translate" name="budget" required
+                        [ngModel]="newMission.budget" min="1" #budgetInput><span>zł</span>
+                </span>
+                <select class="form-input status-input" id="status" name="status" required
+                    [ngModel]="newMission.status">
+                    <option class="option-placeholder" value="" selected disabled hidden>{{"MISSION-STATUS"|translate}}
+                    </option>
+                    <option value="in progress">{{"in progress"|translate}}</option>
+                    <option value="completed">{{"completed"|translate}}</option>
+                    <option value="future">{{"future"|translate}}</option>
+                </select>
+                <div class="form-controls">
+                    <button class="btn-second" (click)="onClose()">{{"CANCEL"|translate}}</button>
+                    <button class="btn-main" type="submit" [disabled]="!form.valid">{{"SAVE"|translate}}</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="mission-modal-panel-missionAdded" *ngIf="missionAdded || missionEdited">
+            <div class="missionAdded-info">
+                <img src="../../../../assets/svgs/check-mark-circle.svg">
+                <h3 *ngIf="!isMissionEditting">{{"MISSION-ADDED"|translate}} {{newMission.name}}</h3>
+                <h3 *ngIf="missionEdited">{{"MISSION-EDITED"|translate}} {{newMission.name}}</h3>
+            </div>
+            <div class="missionAdded-controls">
+                <button class="btn-second" (click)="onBack()">{{"BACK-TO-DASHBOARD"|translate}}</button>
+                <button class="btn-main" (click)="onClose()">{{"BACK-TO-LIST"|translate}}</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,247 @@
+@use "colors" as *;
+@import "components";
+:host {
+  display: block;
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+.missions-modal {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  padding: 1em;
+  width: 100%;
+  max-width: 1030px;
+  transform: translate(-50%, -50%);
+  .close-modal {
+    margin-left: auto;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: 3px solid $pure-white;
+    border-radius: 50px;
+    cursor: pointer;
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: 100;
+      font-size: 30px;
+      color: $pure-white;
+    }
+  }
+  &-panel {
+    margin-top: 1em;
+    &-text {
+      h3 {
+        font-size: 2rem;
+      }
+    }
+    &-form {
+      width: 100%;
+      .form-input {
+        position: relative;
+        padding: 0.2em 0.4em;
+        margin: 0.5em 0;
+        width: 100%;
+        border: transparent;
+        border-bottom: 1px solid $border-gray;
+        transition: padding 0.1s;
+
+        &:focus {
+          padding: 0.35em 0.7em;
+          border-bottom: 1px solid $main-green;
+          outline: transparent;
+        }
+      }
+      .form-input.ng-invalid.ng-touched {
+        border-bottom: 1px solid rgb(207, 1, 1);
+      }
+      .deadline-input {
+        background: url("../../../../assets/svgs/calendar.svg");
+
+        &:focus {
+          background-position: 98%;
+        }
+        &::-webkit-calendar-picker-indicator {
+          opacity: 0;
+        }
+      }
+      .status-input {
+        position: relative;
+        appearance: none;
+        width: 100%;
+        background: url("../../../../assets/imgs/arrow-down.png");
+      }
+      .deadline-input,
+      .status-input {
+        background-position: 99%;
+        background-repeat: no-repeat;
+        transition: padding 0.15s, background-position 0.15s;
+        &:focus {
+          background-position: 98%;
+        }
+      }
+      .budget-input {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+      }
+      .form-controls {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: start;
+        margin: auto;
+        margin-top: 1em;
+        max-width: 300px;
+        button {
+          font-size: 1.2rem;
+        }
+      }
+    }
+    .help-block {
+      display: inline;
+      font-size: 0.5rem;
+    }
+  }
+}
+.mission-modal-panel-missionAdded {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  .missionAdded-info {
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 1em;
+  }
+  .missionAdded-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    max-width: 520px;
+    button {
+      font-size: 1rem;
+    }
+  }
+}
+@media (min-width: 576px) {
+  .missions-modal {
+    &-panel {
+      &-text {
+        padding: 0.5em;
+        h3 {
+          font-size: 2.4rem;
+        }
+      }
+      &-form {
+        form {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .form-input {
+          margin: 1em 0.5em;
+          font-size: 1.8rem;
+          width: 46%;
+          &:nth-child(2) {
+            margin-left: 0.7em;
+          }
+        }
+      }
+      .budget-input {
+        width: 50%;
+        input {
+          width: 100%;
+        }
+      }
+      .form-controls {
+        margin-top: 3em;
+        gap: 2em;
+        button {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+  .mission-modal-panel-missionAdded {
+    gap: 2em;
+    .missionAdded-info {
+      h3 {
+        font-size: 2rem;
+      }
+      gap: 1.5em;
+    }
+    .missionAdded-controls {
+      gap: 0.8em;
+      button {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+@media (min-width: 768px) {
+  .missions-modal {
+    &-panel {
+      &-form {
+        .form-input {
+          &:nth-child(2) {
+            margin-left: 1.5em;
+          }
+        }
+      }
+      .form-controls {
+        button {
+          font-size: 1.6rem;
+        }
+      }
+    }
+    .mission-modal-panel-missionAdded {
+      padding: 1em 0;
+      gap: 2em;
+      .missionAdded-info {
+        h3 {
+          font-size: 2rem;
+        }
+        gap: 1.5em;
+      }
+      .missionAdded-controls {
+        gap: 1em;
+        button {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 992px) {
+  .missions-modal {
+    .mission-modal-panel-missionAdded {
+      padding: 2em 0;
+      gap: 3em;
+      .missionAdded-info {
+        img {
+          width: 120px;
+        }
+        h3 {
+          font-size: 2.4rem;
+        }
+        gap: 1.5em;
+      }
+      .missionAdded-controls {
+        gap: 1.7em;
+        button {
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+}

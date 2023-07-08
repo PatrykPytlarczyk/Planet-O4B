@@ -1,0 +1,14 @@
+<svg id="button-icon-action-menu-v1.0" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <circle id="Ellipse_376" data-name="Ellipse 376" cx="12" cy="12" r="12" fill="#27c722" opacity="0"/>
+  <g id="icon-action-menu-v1.0">
+    <path id="Path_138894" data-name="Path 138894" d="M0,0H24V24H0Z" fill="none"/>
+    <g id="Group_6443" data-name="Group 6443" transform="translate(-359 -739)">
+      <path id="Path_138893" data-name="Path 138893" d="M0,0H20V20H0Z" transform="translate(361 741)" fill="none"/>
+      <g id="_3-dots" data-name="3-dots" transform="translate(-6.222 -242)">
+        <path id="Path_2438" data-name="Path 2438" d="M24.222,4.444A2.222,2.222,0,1,0,22,2.222,2.225,2.225,0,0,0,24.222,4.444Z" transform="translate(353 983)" fill="#27c722"/>
+        <path id="Path_2439" data-name="Path 2439" d="M24.222,44a2.222,2.222,0,1,0,2.222,2.222A2.225,2.225,0,0,0,24.222,44Z" transform="translate(353 954.556)" fill="#27c722"/>
+        <path id="Path_2440" data-name="Path 2440" d="M24.222,22a2.222,2.222,0,1,0,2.222,2.222A2.225,2.225,0,0,0,24.222,22Z" transform="translate(353 968.778)" fill="#27c722"/>
+      </g>
+    </g>
+  </g>
+</svg>

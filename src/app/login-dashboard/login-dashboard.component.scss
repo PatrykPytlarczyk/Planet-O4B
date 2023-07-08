@@ -1,0 +1,128 @@
+@use "colors" as *;
+@import "components";
+
+.login-dashboard {
+  max-height: 645px;
+  width: 94vw;
+  max-width: 630px;
+  background-color: $pure-white;
+  box-shadow: #2222220d 0 3px 30px;
+  border-radius: 20px;
+  .languages {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    .language {
+      position: absolute;
+      right: -20px;
+      top: -20px;
+    }
+    .language-second {
+      position: absolute;
+      left: -20px;
+      top: -20px;
+    }
+    img {
+      width: 30px;
+      margin: 0.5em 0;
+      cursor: pointer;
+      border-radius: 50px;
+      transition: transform 0.3s;
+      box-shadow: rgba(0, 0, 0, 0.3) 0 0 7px;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+  .form-group {
+    margin: 10px auto;
+    position: relative;
+    &-input {
+      display: block;
+      width: 100%;
+      padding: 10px 10px 10px 50px;
+      font-size: 1.6rem;
+      border: 1px solid $border-gray;
+      border-radius: 10px;
+      &:focus {
+        outline: none;
+        border: 1px solid $main-green;
+      }
+    }
+    &-input.passwordInput.ng-dirty.notEmpty {
+      letter-spacing: 0.3em;
+      font-weight: bold;
+    }
+    &-input.ng-invalid.ng-touched {
+      border: 1px solid rgb(207, 1, 1);
+    }
+    .help-block {
+      position: absolute;
+      bottom: -20px;
+      left: 10px;
+      font-size: 1rem;
+      color: rgb(207, 1, 1);
+    }
+  }
+  .form-controls {
+    font-size: 1.6rem;
+    a {
+      color: $main-green;
+    }
+  }
+}
+
+.icon {
+  position: absolute;
+  left: 15px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 375px) {
+  .form-controls {
+    a,
+    button {
+      font-size: 1.3rem;
+    }
+  }
+  .form-options {
+    font-size: 1.4rem;
+  }
+}
+@media (min-width: 376px) {
+  .login-dashboard {
+    .form-group {
+      .help-block {
+        bottom: -25px;
+        left: 10px;
+        font-size: 1.2rem;
+        color: rgb(207, 1, 1);
+      }
+    }
+  }
+}
+@media (min-width: 436px) {
+  .login-dashboard {
+    .form-group {
+      .help-block {
+        bottom: -30px;
+        left: 10px;
+        font-size: 1.4rem;
+        color: rgb(207, 1, 1);
+      }
+    }
+  }
+}
+@media (min-width: 565px) {
+  .login-dashboard {
+    .form-group {
+      .help-block {
+        bottom: -15px;
+      }
+    }
+  }
+}

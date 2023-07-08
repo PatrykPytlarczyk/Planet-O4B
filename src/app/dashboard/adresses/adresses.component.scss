@@ -1,0 +1,475 @@
+@use "colors" as *;
+@import "components";
+
+.main-addresses {
+  .wrapper {
+    flex-direction: column;
+  }
+  .path {
+    align-self: start;
+    font-size: 1.3rem;
+    .arrow {
+      color: $border-gray;
+    }
+  }
+  .addresses {
+    width: 100%;
+    &-select {
+      padding-left: 0;
+      font-size: 1.6rem;
+      font-weight: 500;
+      &-text {
+        padding: 1em;
+        background-color: $light-gray;
+        border-radius: 0 50px 50px 0;
+      }
+    }
+    &-management {
+      margin-top: 1em;
+      p {
+        font-size: 1.4rem;
+      }
+      &-text {
+        h3 {
+          margin-bottom: 1em;
+          font-size: 2.6rem;
+        }
+        .change-layout {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 0.3em;
+          text-align: right;
+          span {
+            cursor: pointer;
+          }
+        }
+      }
+      .addresses-list {
+        margin-top: 1.5em;
+        text-align: center;
+        &-loaded {
+          overflow: auto;
+          width: 100%;
+          padding: 0;
+          table {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            min-width: 768px;
+            .heading-row {
+              width: 100%;
+              background-color: $light-gray;
+              border-radius: 39px;
+              th {
+                font-weight: 500;
+              }
+            }
+            .heading-row,
+            .body-row {
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
+              padding: 1.8em;
+            }
+            .body-row {
+              border-radius: 20px;
+              td:first-child {
+                font-weight: 500;
+              }
+            }
+            th,
+            td {
+              text-align: left;
+              width: 33%;
+            }
+            th:last-child,
+            td:last-child {
+              text-align: right;
+              width: 10%;
+            }
+            .options {
+              position: relative;
+              right: 2px;
+              .showedOptions {
+                display: none;
+              }
+            }
+
+            .options.showOptions {
+              .showedOptions {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5em;
+                position: absolute;
+                top: -75px;
+                left: -56px;
+                padding: 1em 0.6em;
+                min-width: 110px;
+                text-align: center;
+                background-color: $pure-white;
+                border-radius: 10px;
+                box-shadow: #0377ba4d 0 0px 20px;
+                z-index: 1;
+                span {
+                  font-size: 1.2rem;
+                  font-style: normal;
+                  transition: transform 0.1s;
+                  &:hover {
+                    transform: scale(1.1);
+                  }
+                }
+                span:first-child {
+                  font-weight: 500;
+                }
+              }
+            }
+          }
+          table.tiledLayout {
+            overflow: auto;
+            flex-direction: row;
+            flex-wrap: wrap;
+            .heading-row,
+            .body-row {
+              flex-direction: column;
+              flex-wrap: wrap;
+              width: 33%;
+              padding: 1em;
+              min-width: 170px;
+            }
+            .heading-row {
+              display: none;
+            }
+            th,
+            td {
+              width: 100%;
+            }
+            th:last-child,
+            td:last-child {
+              width: 100%;
+            }
+
+            .options.showOptions {
+              .showedOptions {
+                left: -45px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .addresses-modal-panel {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    max-width: 1030px;
+    transform: translate(-50%, -30%);
+    z-index: 5;
+    .panel-user {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      font-weight: 500;
+      margin-bottom: 1em;
+    }
+    .panel-form {
+      h3 {
+        font-size: 2rem;
+        margin-bottom: 1em;
+      }
+      .form-bar {
+        position: relative;
+        width: 100%;
+        height: 10px;
+        border: 1px solid #1b67e0;
+        border-radius: 20px;
+        margin-bottom: 1em;
+        &-filling {
+          position: absolute;
+          height: 100%;
+          width: 0%;
+          background-color: #1b67e0;
+          transition: width 0.2s;
+          .form-bar-percent {
+            position: absolute;
+            top: -30px;
+            right: -17px;
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #1b67e0;
+            &::after {
+              content: "";
+              position: absolute;
+              top: 20px;
+              left: 10px;
+              border-left: 6px solid transparent;
+              border-right: 6px solid transparent;
+              border-top: 6px solid #1b67e0;
+            }
+          }
+        }
+      }
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        .form-text {
+          color: #000;
+        }
+        .form-group {
+          display: flex;
+          gap: 1em;
+
+          input,
+          select {
+            position: relative;
+            padding: 0.1em;
+            width: 100%;
+            border: transparent;
+            border-bottom: 1px solid $border-gray;
+            transition: padding 0.1s;
+
+            &:focus {
+              padding: 0.2em 0.4em;
+              border-bottom: 1px solid $main-green;
+              outline: transparent;
+            }
+          }
+          input.ng-valid.ng-touched,
+          select.ng-valid.ng-touched {
+            border-bottom: 1px solid $main-green;
+          }
+          select {
+            position: relative;
+            appearance: none;
+            width: 100%;
+            background: url("../../../assets/imgs/arrow-down.png");
+            background-position: 99%;
+            background-repeat: no-repeat;
+            transition: padding 0.15s, background-position 0.15s;
+            &:focus {
+              background-position: 95%;
+            }
+          }
+          input.ng-invalid.ng-touched,
+          select.ng-invalid.ng-touched {
+            border-bottom: 1px solid rgb(207, 1, 1);
+          }
+          &--first {
+            flex-direction: column;
+          }
+        }
+        &-controls {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1em;
+          margin: auto;
+          max-width: 300px;
+          button {
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+    .close-modal {
+      position: absolute;
+      top: -70px;
+      right: 0;
+      width: 50px;
+      height: 50px;
+      border: 3px solid $pure-white;
+      border-radius: 50px;
+      cursor: pointer;
+      span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 30px;
+        color: $pure-white;
+      }
+    }
+  }
+  .address-modal-panel-addressManaged {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    gap: 1em;
+    top: 30%;
+    left: 50%;
+    max-width: 1030px;
+    transform: translate(-50%, -30%);
+    z-index: 5;
+    .addressManaged-info {
+      display: flex;
+      align-items: center;
+      img {
+        width: 15%;
+        min-width: 60px;
+      }
+      h3 {
+        font-size: 1.8rem;
+      }
+    }
+    .addressManaged-controls {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      button {
+        font-size: 1.4rem;
+      }
+    }
+  }
+  .addresses-bgc {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 4;
+  }
+}
+
+@keyframes button-loading-spinner {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}
+@media (min-width: 576px) {
+  .main-addresses {
+    .path {
+      font-size: 1.6rem;
+    }
+    .addresses {
+      &-select {
+        padding-left: 0;
+        font-size: 1.8rem;
+        font-weight: 500;
+      }
+      &-management {
+        .addresses-list {
+          padding: 1em;
+        }
+        p {
+          font-size: 1.6rem;
+        }
+        &-text {
+          h3 {
+            font-size: 3rem;
+          }
+        }
+        .btn-second {
+          font-size: 2rem;
+        }
+      }
+    }
+    .addresses-modal-panel {
+      .panel-form {
+        h3 {
+          font-size: 2.4rem;
+          margin-bottom: 1em;
+        }
+        .form-bar {
+          margin-bottom: 1.5em;
+        }
+        .form {
+          gap: 1.5em;
+          .form-group {
+            display: flex;
+            gap: 1em;
+
+            &--first {
+              flex-direction: row;
+            }
+          }
+          &-controls {
+            margin-top: 1em;
+            button {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: 768px) {
+  .main-addresses {
+    .addresses-modal-panel {
+      flex-direction: row;
+      align-items: start;
+      padding: 2em 1em;
+      .panel-user {
+        width: 20%;
+        flex-direction: column;
+      }
+      .panel-form {
+        width: 70%;
+        .form-bar {
+          margin-bottom: 2em;
+        }
+        .form {
+          gap: 2em;
+        }
+      }
+    }
+    .address-modal-panel-addressManaged {
+      width: 90vw;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      gap: 1em;
+      top: 30%;
+      left: 50%;
+      max-width: 1030px;
+      transform: translate(-50%, -30%);
+      z-index: 5;
+      gap: 2em;
+      .addressManaged-info {
+        h3 {
+          font-size: 2.4rem;
+        }
+      }
+      .addressManaged-controls {
+        button {
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .main-addresses {
+    .addresses-modal-panel {
+      .panel-form {
+        .form {
+          gap: 3em;
+        }
+      }
+    }
+  }
+  .addresses {
+    display: flex;
+    gap: 2em;
+    &-select {
+      align-self: baseline;
+      width: 30%;
+    }
+    &-management {
+      width: 100%;
+    }
+  }
+}

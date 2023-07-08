@@ -1,0 +1,13 @@
+<app-header></app-header>
+<div class="page-not-found">
+    <div class="wrapper">
+        <img src="../../assets/imgs/404.png" alt="404 error image">
+        <div class="white-card">
+            <div class="text" [innerHTML]="'404-TEXT'|translate">
+            </div>
+            <button [routerLink]="['/dashboard/main-dashboard']"
+                class="btn-main">{{"BACK-TO-DASHBOARD"|translate}}</button>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
