@@ -20,4 +20,4 @@ Make sure you have NodeJS installed. You can download it [HERE](https://nodejs.o
 
 Once you have downloaded or cloned repository, go to folder path and run `npm install` to install necessary packages.
 
-Then run `npm run ng serve` for a dev server. Navigate to `http://localhost:4200/.` The application will automatically reload if you change any of the source files.
+Then run `npm run ng serve` for a dev server. Navigate to `http://localhost:4200` The application will automatically reload if you change any of the source files.
