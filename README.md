@@ -1,27 +1,23 @@
-# O4B
+# Planet O4B
+Planet O4B is an Angular 16 app, where you can fully manage your missions and addresses. 
+<br>
+It supports two languages - Polish and English.
+<br>
+Just log in and enjoy! Remember to mark "remember me" to avoid logging every time you visit our Planet!
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
+## Technologies
+Technologies used in app:
 
-## Development server
+* Angular 16
+* Bootstrap 5 (Only in the login panel)
+* Typescript
+* SCSS
+* HTML
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Installation
 
-## Code scaffolding
+Make sure you have NodeJS installed. You can download it [HERE](https://nodejs.org/en)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Once you have downloaded or cloned repository, go to folder path and run `npm install` to install necessary packages.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Then run `npm run ng serve` for a dev server. Navigate to `http://localhost:4200/.` The application will automatically reload if you change any of the source files.
